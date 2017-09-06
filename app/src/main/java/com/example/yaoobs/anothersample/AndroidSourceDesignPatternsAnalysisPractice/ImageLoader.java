@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.PublicKey;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,14 +18,19 @@ import java.util.concurrent.Executors;
 public class ImageLoader {
     //图片缓存
     ImageCache mImageCache = new ImageCache();
+    //SD卡缓存
+    DiskCache mDiskCache = new DiskCache();
+    //是否使用SD卡缓存
+    boolean isUseDiskCache = false;
     //线程池，线程数量为CPU的数量
     ExecutorService mExecutorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     public void displayImage(final String url, final ImageView imageView){
-        Bitmap bitmap = mImageCache.get(url);
+        Bitmap bitmap = isUseDiskCache? mDiskCache.get(url) :mImageCache.get(url);
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
             return;
+            //没有缓存，则提交给线程池进行下载
         }
         imageView.setTag(url);
         mExecutorService.submit(new Runnable() {
@@ -40,6 +46,10 @@ public class ImageLoader {
                 mImageCache.put(url,bitmap);
             }
         });
+    }
+
+    public void useDiskCache(boolean useDiskCache) {
+        isUseDiskCache = useDiskCache;
     }
 
     private Bitmap downloadImage(String imageUrl) {
