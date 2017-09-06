@@ -2,12 +2,10 @@ package com.example.yaoobs.anothersample.AndroidSourceDesignPatternsAnalysisPrac
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.PublicKey;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,7 +15,7 @@ import java.util.concurrent.Executors;
 
 public class ImageLoader {
     //图片缓存
-    ImageCache mImageCache = new ImageCache();
+    MemoryCache mImageCache = new MemoryCache();
     //SD卡缓存
     DiskCache mDiskCache = new DiskCache();
     //双缓存
