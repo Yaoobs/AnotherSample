@@ -29,13 +29,7 @@ public class DiskCache implements ImageCache {
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } finally {
-            if (fileOutputStream != null){
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
+            CloseUtils.closeQuietly(fileOutputStream);
         }
     }
 
