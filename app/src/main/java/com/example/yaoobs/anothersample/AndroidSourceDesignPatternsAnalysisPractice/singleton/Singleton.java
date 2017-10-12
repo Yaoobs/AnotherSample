@@ -4,15 +4,20 @@ package com.example.yaoobs.anothersample.AndroidSourceDesignPatternsAnalysisPrac
  * Created by yaoobs on 2017/10/12.
  */
 
-// 懒汉模式
+// 懒汉模式 Double Check Lock
 public class Singleton {
-    private static Singleton instance;
+    private static Singleton mInstance = null;
     private Singleton() {}
+    public void doSomething(){
+        System.out.println("do sth.");
+    }
 
-    private static synchronized Singleton getInstance(){
-        if (instance == null) {
-            instance = new Singleton();
+    private static Singleton getInstance(){
+        synchronized (Singleton.class) {
+            if (mInstance == null) {
+                mInstance = new Singleton();
+            }
         }
-        return instance;
+        return mInstance;
     }
 }
