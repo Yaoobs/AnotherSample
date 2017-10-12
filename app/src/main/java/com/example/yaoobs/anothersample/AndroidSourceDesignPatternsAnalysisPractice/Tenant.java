@@ -14,16 +14,8 @@ public class Tenant {
     public static final float diffArea = 0.00001f;
 
     public void rentRoom(Mediator mediator) {
-        List<Room> rooms = mediator.getAllRooms();
-        for (Room room : rooms) {
-            if (isSuitable(room)) {
-                System.out.println("租到房间啦!" + room);
-            }
-        }
-    }
 
-    private boolean isSuitable(Room room) {
-        return Math.abs(room.price - roomPrice) < diffPrice
-                && Math.abs(room.area - roomArea) < diffArea;
+        System.out.println("租到房间啦!" + mediator.rentOut(diffArea,diffPrice));
+
     }
 }
