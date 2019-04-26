@@ -1,4 +1,4 @@
-package com.eastmoney.android.fund.activity.proxy.common;
+package com.example.yaoobs.anothersample.xiaozhuanlan.common;
 
 /**
  * author yaozheng
