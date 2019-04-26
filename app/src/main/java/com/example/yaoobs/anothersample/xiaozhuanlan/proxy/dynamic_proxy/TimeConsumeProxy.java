@@ -1,4 +1,4 @@
-package com.example.yaoobs.anothersample.xiaozhuanlan.dynamic_proxy;
+package com.example.yaoobs.anothersample.xiaozhuanlan.proxy.dynamic_proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.example.yaoobs.anothersample.xiaozhuanlan.common;
+package com.example.yaoobs.anothersample.xiaozhuanlan.proxy.common;
 
 /**
  * author yaozheng
@@ -7,9 +7,9 @@ package com.example.yaoobs.anothersample.xiaozhuanlan.common;
  * PROJECT_NAME FundAs
  * DATE  2019/4/25 7:38 PM
  */
-public class AFunc implements IAFunc {
+public class BFunc implements IBFunc {
     @Override
-    public void doA() {
+    public void doB() {
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.yaoobs.anothersample.xiaozhuanlan.static_proxy;
+package com.example.yaoobs.anothersample.xiaozhuanlan.proxy.static_proxy;
 
 /**
  * author yaozheng
